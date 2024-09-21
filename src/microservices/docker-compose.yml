@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: devops/api.Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+      - mongo
+
+  consumer:
+    build:
+      context: .
+      dockerfile: devops/consumer.Dockerfile
+    depends_on:
+      - redis
+      - mongo
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+
+  mongo:
+    image: "mongo:latest"
+    ports:
+      - "27017:27017"

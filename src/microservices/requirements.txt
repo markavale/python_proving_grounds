@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+redis
+motor
+aioredis
+requests
+pytest
+asynctest
