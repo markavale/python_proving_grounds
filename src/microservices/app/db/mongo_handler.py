@@ -1,7 +1,11 @@
 from motor.motor_asyncio import AsyncIOMotorClient
+from decouple import Config
+
+config = Config()
 
 class MongoHandler:
-    def __init__(self, mongo_uri="mongodb://localhost:27017/"):
+    def __init__(self, mongo_uri=None):
+        mongo_uri = mongo_uri or config("MONGO_URI")
         self.mongo_client = AsyncIOMotorClient(mongo_uri)
         self.db = self.mongo_client["job_db"]
         self.jobs_collection = self.db["jobs"]

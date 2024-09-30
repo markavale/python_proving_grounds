@@ -1,9 +1,13 @@
 import aioredis
 import json
+from decouple import Config
+
+config = Config()
 
 class RedisHandler:
-    def __init__(self, host='localhost', port=6379, db=0):
-        self.redis_client = aioredis.from_url(f"redis://{host}:{port}/{db}")
+    def __init__(self, redis_uri=None):
+        redis_uri = redis_uri or config("REDIS_URI")
+        self.redis_client = aioredis.from_url(redis_uri)
 
     async def save_job(self, job_id, job_data):
         await self.redis_client.set(job_id, json.dumps(job_data))

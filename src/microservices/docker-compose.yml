@@ -10,6 +10,8 @@ services:
     depends_on:
       - redis
       - mongo
+    env_file:
+      - .env
 
   consumer:
     build:
@@ -18,6 +20,8 @@ services:
     depends_on:
       - redis
       - mongo
+    env_file:
+      - .env
 
   redis:
     image: "redis:alpine"

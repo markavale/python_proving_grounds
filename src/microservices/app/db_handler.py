@@ -3,7 +3,7 @@ import redis
 import json
 
 class DatabaseHandler:
-    def __init__(self, mongo_uri="mongodb://localhost:27017/", redis_host='localhost', redis_port=6379, redis_db=0):
+    def __init__(self, mongo_uri="mongodb://mongo:27017/", redis_host='redis', redis_port=6379, redis_db=0):  # Change 'localhost' to 'mongo' and 'redis'
         # MongoDB client
         self.mongo_client = MongoClient(mongo_uri)
         self.db = self.mongo_client["job_db"]
