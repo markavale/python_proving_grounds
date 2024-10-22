@@ -2,25 +2,32 @@ from typing import List, Optional
 
 # Define a series of functions that perform basic arithmetic operations
 def first_function(a: int, b: int) -> int:
+    print("first_function")
     return a + b
 
 def second_function(a: int, b: int) -> int:
+    print("second_function")
     return a - b
 
 def third_function(a: int, b: int) -> int:
+    print("third_function")
     return a * b
 
 def fourth_function(a: int, b: int) -> int:
+    print("fourth_function")
     return a / b
 
 def fifth_function(a: int, b: int) -> int:
+    print("fifth_function")
     return a % b
 
 def sixth_function(a: int, b: int) -> int:
+    print("sixth_function")
     return a ** b
 
 # Default function to use if no valid key is provided
 def default_function(a: int, b: int) -> int:
+    print("default_function")
     return a + b
 
 if __name__ == "__main__":
