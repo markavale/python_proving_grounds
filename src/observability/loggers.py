@@ -92,3 +92,19 @@ def setup_custom_logger(name, use_json=False):
 
 
 logger: logging.Logger = setup_custom_logger(__name__, use_json=True)
+
+
+# Sample way to turning off logs from the other libraries
+logging.getLogger("playwright").propagate = False
+logging.getLogger("protego").propagate = False
+logging.getLogger("asyncio").propagate = False
+logging.getLogger("twisted").propagate = False
+logging.getLogger("scrapy").propagate = False
+logging.getLogger("scrapy.utils.log").propagate = False
+logging.getLogger("scrapy-playwright").propagate = False
+logging.getLogger("pymongo.connection").propagate = False
+logging.getLogger("pymongo.command").propagate = False
+logging.getLogger("pymongo.serverSelection").propagate = False
+logging.getLogger("faker.factory").propagate = False
+logging.getLogger("scrapy_fake_useragent.middleware").propagate = False
+logging.getLogger("py.warnings").propagate = False
